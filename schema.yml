@@ -1,0 +1,329 @@
+openapi: 3.0.3
+info:
+  title: ""
+  version: 0.0.0
+paths:
+  /api/address/{id}:
+    get:
+      operationId: api_address_retrieve
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - api
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Address"
+          description: The address with ID provided.
+        "404":
+          description: Not found. If the ID fetched doesn't exist.
+        "500":
+          description: Internal Server Error. This happens in case of a fetch failure.
+    put:
+      operationId: api_address_update
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Address"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/Address"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/Address"
+        required: true
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Address"
+          description: Successful PUT response.
+        "400":
+          description: Bad Request. Cannot be added.
+        "404":
+          description: Not found. If the ID to be updated doesn't exist.
+        "500":
+          description: Internal Server Error. Unable to update address.
+    delete:
+      operationId: api_address_destroy
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - api
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "204":
+          description: Address {id} deleted successfully
+        "404":
+          description: Not found. If the ID to be deleted doesn't exist.
+        "500":
+          description: Internal Server Error. System error in deleting.
+  /api/address/create:
+    post:
+      operationId: api_address_create_create
+      tags:
+        - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Address"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/Address"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/Address"
+        required: true
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Address"
+          description: The address added.
+        "400":
+          description:
+            Bad Request. This happens when the request has errors from
+            the users side.
+        "500":
+          description: Internal Server Error. This happens in case of a save failure.
+  /api/addresses/:
+    get:
+      operationId: api_addresses_retrieve
+      tags:
+        - api
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Address"
+          description: List of addresses
+        "500":
+          description: Internal Server Error
+
+    get:
+      operationId: api_schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+        - in: query
+          name: format
+          schema:
+            type: string
+            enum:
+              - json
+              - yaml
+        - in: query
+          name: lang
+          schema:
+            type: string
+            enum:
+              - af
+              - ar
+              - ar-dz
+              - ast
+              - az
+              - be
+              - bg
+              - bn
+              - br
+              - bs
+              - ca
+              - ckb
+              - cs
+              - cy
+              - da
+              - de
+              - dsb
+              - el
+              - en
+              - en-au
+              - en-gb
+              - eo
+              - es
+              - es-ar
+              - es-co
+              - es-mx
+              - es-ni
+              - es-ve
+              - et
+              - eu
+              - fa
+              - fi
+              - fr
+              - fy
+              - ga
+              - gd
+              - gl
+              - he
+              - hi
+              - hr
+              - hsb
+              - hu
+              - hy
+              - ia
+              - id
+              - ig
+              - io
+              - is
+              - it
+              - ja
+              - ka
+              - kab
+              - kk
+              - km
+              - kn
+              - ko
+              - ky
+              - lb
+              - lt
+              - lv
+              - mk
+              - ml
+              - mn
+              - mr
+              - ms
+              - my
+              - nb
+              - ne
+              - nl
+              - nn
+              - os
+              - pa
+              - pl
+              - pt
+              - pt-br
+              - ro
+              - ru
+              - sk
+              - sl
+              - sq
+              - sr
+              - sr-latn
+              - sv
+              - sw
+              - ta
+              - te
+              - tg
+              - th
+              - tk
+              - tr
+              - tt
+              - udm
+              - ug
+              - uk
+              - ur
+              - uz
+              - vi
+              - zh-hans
+              - zh-hant
+      tags:
+        - api
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ""
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        street:
+          type: string
+          maxLength: 256
+        city:
+          type: string
+          maxLength: 50
+        state:
+          type: string
+          maxLength: 100
+        postal_code:
+          type: string
+          maxLength: 10
+        country:
+          type: string
+          maxLength: 100
+      required:
+        - city
+        - country
+        - id
+        - postal_code
+        - state
+        - street
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

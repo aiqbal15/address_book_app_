@@ -1,0 +1,7 @@
+{
+        "street": "Grossenhainer Strasse 60-1",
+        "city": "Senftenberg",
+        "state": "Berlin-Brandenberg",
+        "postal_code": "12345",
+        "country": "Germany"
+}

@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "2fa6de46-c57b-4444-a79a-6f2ecd30fecd",
+		"name": "Django API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9030841"
+	},
+	"item": [
+		{
+			"name": "Get - Address List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/addresses/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"addresses",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get - Address By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/addresses/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"addresses",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Address By ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"street\": \"Grossenhainer Strasse 60-56\",\r\n    \"city\": \"Senftenberg\",\r\n    \"state\": \"Berlin-Brandenberg\",\r\n    \"postal_code\": \"12345\",\r\n    \"country\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/address/66",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"address",
+						"66"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Address By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"street\": \"Grossenhainer Strasse 60-56\",\r\n    \"city\": \"Senftenberg\",\r\n    \"state\": \"Berlin-Brandenberg\",\r\n    \"postal_code\": \"12345\",\r\n    \"country\": \"Germany\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/addresses/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"addresses",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - New Address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"street\": \"Grossenhainer Strasse 60-4\",\r\n    \"city\": \"Senftenberg\",\r\n    \"state\": \"Berlin-Brandenberg\",\r\n    \"postal_code\": \"12345\",\r\n    \"country\": \"Germany\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/address/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"address",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
